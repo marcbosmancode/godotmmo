@@ -1,0 +1,48 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Fonts/CutePAFont.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Items/InventoryDisplay/InventoryDisplay.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Items/InventoryDisplay/InventoryWindow.gd" type="Script" id=3]
+[ext_resource path="res://UI/NineSliceUI.tscn" type="PackedScene" id=4]
+
+[node name="InventoryContainer" type="Control"]
+margin_right = 64.0
+margin_bottom = 72.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NineSliceUI" parent="." instance=ExtResource( 4 )]
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 8.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="InventoryDisplay" parent="CenterContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 59.0
+margin_bottom = 59.0
+
+[node name="Label" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -21.0
+margin_top = 2.0
+margin_right = 21.0
+margin_bottom = 8.0
+custom_fonts/font = ExtResource( 1 )
+text = "Inventory"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="gui_input" from="." to="." method="_on_InventoryContainer_gui_input"]

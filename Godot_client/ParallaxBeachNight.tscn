@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Backgrounds/parallax_bg_0_night.png" type="Texture" id=1]
+[ext_resource path="res://World/SkyLayer.gd" type="Script" id=2]
+
+[node name="ParallaxBackgroundNight" type="ParallaxBackground"]
+
+[node name="Sky_night" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0.1, 1 )
+motion_mirroring = Vector2( 800, 400 )
+script = ExtResource( 2 )
+SKY_SPEED = -8.0
+
+[node name="Sprite" type="Sprite" parent="Sky_night"]
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 0, 800, 400 )

@@ -1,0 +1,71 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://World/CloudLayer.gd" type="Script" id=1]
+[ext_resource path="res://Lighting/DayNightCycle.gd" type="Script" id=2]
+[ext_resource path="res://Backgrounds/parallax_bg_3.png" type="Texture" id=3]
+[ext_resource path="res://Backgrounds/parallax_bg_2.png" type="Texture" id=4]
+[ext_resource path="res://Backgrounds/parallax_bg_1.png" type="Texture" id=5]
+[ext_resource path="res://Backgrounds/parallax_bg_4.png" type="Texture" id=6]
+[ext_resource path="res://Backgrounds/parallax_bg_0.png" type="Texture" id=7]
+
+[node name="ParallaxBackground" type="ParallaxBackground"]
+layer = -1
+script = ExtResource( 2 )
+
+[node name="Sky" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0.1, 1 )
+motion_mirroring = Vector2( 800, 0 )
+
+[node name="Sprite" type="Sprite" parent="Sky"]
+texture = ExtResource( 7 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 0, 800, 400 )
+
+[node name="Clouds_background" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0.1, 1 )
+motion_mirroring = Vector2( 800, 0 )
+script = ExtResource( 1 )
+CLOUD_SPEED = -2.0
+
+[node name="Sprite" type="Sprite" parent="Clouds_background"]
+position = Vector2( 0, -1 )
+texture = ExtResource( 5 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 0, 800, 400 )
+region_filter_clip = true
+
+[node name="Clouds_foreground" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0.2, 1 )
+motion_mirroring = Vector2( 800, 0 )
+script = ExtResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="Clouds_foreground"]
+texture = ExtResource( 4 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 0, 800, 400 )
+
+[node name="Sea" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0.6, 1 )
+motion_mirroring = Vector2( 800, 0 )
+
+[node name="Sprite" type="Sprite" parent="Sea"]
+texture = ExtResource( 3 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 0, 800, 400 )
+
+[node name="Beach" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0.7, 1 )
+motion_mirroring = Vector2( 800, 0 )
+
+[node name="Sprite" type="Sprite" parent="Beach"]
+position = Vector2( -1, 0 )
+texture = ExtResource( 6 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 0, 800, 400 )
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]

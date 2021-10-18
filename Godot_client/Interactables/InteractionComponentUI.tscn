@@ -1,0 +1,47 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Fonts/CutePAFont.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Interactables/InteractionComponentUI.gd" type="Script" id=2]
+
+[sub_resource type="CanvasItemMaterial" id=1]
+light_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id=2]
+light_mode = 1
+
+[node name="InteractionComponentUI" type="Control"]
+margin_right = 74.0
+margin_bottom = 12.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+interaction_text_nodepath = NodePath("HBoxContainer/InteractTextLabel")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="InteractKeyLabel" type="Label" parent="HBoxContainer"]
+material = SubResource( 1 )
+margin_top = 2.0
+margin_right = 11.0
+margin_bottom = 10.0
+custom_fonts/font = ExtResource( 1 )
+text = "[F]"
+align = 1
+valign = 1
+
+[node name="InteractTextLabel" type="Label" parent="HBoxContainer"]
+material = SubResource( 2 )
+margin_left = 15.0
+margin_top = 2.0
+margin_right = 51.0
+margin_bottom = 10.0
+custom_fonts/font = ExtResource( 1 )
+text = "Interact"
+align = 1
+valign = 1
